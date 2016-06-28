@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int shujiou(unsigned int num)
+{ 
+	int i=0,j=0,b;
+    int a[32];
+	while(num)                                 //算二进制数，如果num为0，跳出循环。
+	{
+		b=num%2;
+		a[i]=b;
+		i++;
+		num=num/2;
+	}
+     
+    printf("偶数位：");
+	for(j=1;j<i;j+=2)                         //因为跳出循环后，i多+一个，所以要j<=i+1或者j<i
+	{                                         //从最后一个数当做第一个数，则一三五为奇数。
+	    printf("%d  ",a[j]);
+	}
+	printf("\n");
+
+	printf("奇数位：");                       //同理
+	for(j=0;j<i;j+=2)
+	{   
+	    printf("%d  ",a[j]);
+	}
+	printf("\n");
+	return 0;
+}
+
+int main()
+{
+	int a;
+    scanf("%d",&a);
+    shujiou(a);
+    system("pause");
+    return 0;
+}
