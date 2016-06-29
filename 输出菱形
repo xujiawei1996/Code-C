@@ -1,0 +1,45 @@
+#include "stdio.h"
+
+int main()
+{int i,j,k,n;
+printf("请输入输出菱形的行数\n");
+scanf("%d",&n);
+if(n%2==0)
+{
+printf("偶数行输不出菱形\n");
+}
+
+else
+{
+      for(i=1;i<=n/2+1;i++)          //输出上半行的菱形 i<=输出行数除以2减1
+      {
+       for(j=1;j<=n-i-1;j++)        //循环输出空格   j<=行数减现行数减1
+       {
+        printf(" ");
+       }
+       
+       for(k=0;k<2*i-1;k=k++)       //输出*号  k<2*现行数减1
+        {
+        printf("*");
+        }
+        printf("\n");
+      }
+      
+      
+      
+       for(i=n/2;i>=1;i--)          //输出下半行的菱形  上半行反向输出
+      {
+       for(j=1;j<=n-i-1;j++)
+       {
+        printf(" ");
+       }
+       
+       for(k=0;k<2*i-1;k++) 
+        {
+        printf("*");
+        }
+        printf("\n");
+      }
+   }
+   return 0;
+}
