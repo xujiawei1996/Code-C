@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	int i,j;
+    for(i=101;i<200;i=i+2)                   //这一段我们也能写i++，可是这样子的话，我们循环的次数就会加倍
+	{
+         for(j=2;j<sqrt(i);j++)              //这一段我们可以写 j<i,可是这样子的话 我们循环也会变多 
+		 {                                       //（也可以写i/2 不过也会循环次数过多一些）我们为什么这样子写 
+			 if(i%j==0)                            //举一个例子 24可以写为2*12 3*8 4*6
+			 break;                                //那么我们会乘数中发现至少有一个数字 小于等于 根号下i 所以我们这么写是可以的 
+		 } 
+	 
+       if(j>sqrt(i))
+	   printf("%d\n",i);
+
+	}
+
+	system("pause");
+    return 0;
+}
+
