@@ -1,0 +1,15 @@
+	#define _CRT_SECURE_NO_WARNINGS 1
+
+	int change(int _a,int _b)
+	{
+	printf("%d %d",_a+_b-_a,_a+_b-_b);
+	return 0;
+	}
+
+	int main(){
+	int a,b;
+	scanf("%d%d",&a,&b);
+	change(a,b);
+	system("pause");
+	return 0;
+	}
