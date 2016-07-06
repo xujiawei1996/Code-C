@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int swap(int *_x,int *_y)                                //指针指向地址，说明又换成值了
+{
+
+	int tmp = *_x;
+	*_x = *_y;
+	*_y = tmp;
+	printf("%d %d",*_x,*_y);                             //之后就是值得交换了，这里也是值得输出
+}
+
+
+int main()
+{
+ int x,y;
+ scanf("%d%d",&x,&y);
+ swap(&x,&y);                                         //取地址，把地址给swap
+ system("pause");
+ return 0; 
+}
