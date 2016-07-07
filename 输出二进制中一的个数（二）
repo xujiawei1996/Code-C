@@ -1,0 +1,27 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdlib.h>
+#include<stdio.h>
+
+int shu1(unsigned int num)
+{ 
+	int count=0;
+	while(num)
+	{
+		count++;
+		num=num&(num-1);                                   //精髓： 与算法（二进制算法） 此数的二进制与此数减一的二进制与运算
+	}                                                    //与运算是有0则0，开始已经先加一，如再遇到两个都为一，则再加一
+	printf("%d",count);
+	return 0;
+}
+
+
+int main()
+{
+	int i;
+	scanf("%d",&i);
+	shu1(i);
+	system("pause");
+	return 0;
+}
