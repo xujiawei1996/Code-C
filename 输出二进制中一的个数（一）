@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdlib.h>
+#include<stdio.h>
+
+int shu1(unsigned int num)
+{ 
+	int count=0;
+	int a;
+	while(num)                             //num不为零循环
+	{
+		if(num/2==0)                        //除以二，若为零则跳出
+		{
+			break;
+		}
+		else{                               //否则判断
+		       a=num%2;                     //对二取余，若余数为一，count++
+		       if(a==1)
+		       {
+			     count++;
+		        }
+		        num=num/2;                 //将num=num/2
+		    }
+	}
+	printf("%d",count+1);               //因为差了最后一个，所以要加一
+	return 0;
+}
+
+int main()
+{
+	int i;
+	scanf("%d",&i);
+	shu1(i);
+	system("pause");
+	return 0;
+}
+
