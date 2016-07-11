@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+
+int gongyueshu(int _a,int _b)
+{
+    int c;
+	do{                                    //做循环，一个数为两个数的余数，因为如果两数余数为零，则最小的数为最大公约数
+	   c=_a%_b;
+	   _a=_b;                              
+	   _b=c;
+	}while(c!=0);
+	return _a;
+}
+
+
+int main()
+{
+int a,b,d;
+scanf("%d%d",&a,&b);
+   if(a>b)                                     //若a>b，则用a对b取余数。
+     d=gongyueshu(a,b);
+   else                                        //同理
+      d=gongyueshu(b,a);
+
+printf("%d",d);
+system("pause");
+return 0;
+}
+
+
+
