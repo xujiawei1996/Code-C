@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+
+int main()
+{
+	int i,c,j;
+	int a[3];
+	for(i=0;i<3;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+
+	for(j=0;j<2;j++)                                ////要用两次循环，因为里面排好可能出现321这种情况，只内循环会得到213，则需要加一次外循环
+ {
+	for(i=0;i<2;i++)                                ////内循环次数为i-1;外循环次数也为i-1
+   {
+      if(a[i]>a[i+1])
+     {
+	     int c=a[i];
+	     a[i]=a[i+1];
+	     a[i+1]=c;
+     }
+   }
+ }
+	
+	for(i=0;i<3;i++)
+  {
+    printf("%d",a[i]);
+  }
+
+system("pause");
+return 0;
+}
