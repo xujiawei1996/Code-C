@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+
+static void proc()
+{   
+	const char *lable="|/-\\|/-\\";
+	int index=0;
+	char buf[102];
+	memset(buf,'\0',sizeof(buf));
+
+	while(index<=100){
+		buf[index]='=';
+		printf("[%-101s] [%d%%] [%c] \r",buf,index,lable[index%8]);
+		fflush(stdout);
+		index++;
+		Sleep(100);
+	}
+	printf("\n");
+}
+int main()
+{
+	proc();
+	return 0;
+}
