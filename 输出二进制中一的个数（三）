@@ -1,0 +1,30 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdlib.h>
+#include<stdio.h>
+
+int shu1(int num)
+{ 
+	int i=0;
+	int count=0;
+
+	for(i=0;i<32;i++)
+	{
+		if((num&1)==1)
+		{
+			count++ ;	
+		}
+		num=num>>1;
+	}
+	return count;
+}
+
+
+int main()
+{
+	int j;
+	scanf("%d",&j);
+	printf("%d",shu1(j));
+	system("pause");
+	return 0;
+}
