@@ -21,7 +21,7 @@ int main()
 
 	else
 		printf("有两个共轭的解\n");
-
+ 
 	system("pause");
 	return 0;
 }
