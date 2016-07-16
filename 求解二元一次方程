@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<math.h>
+#include<windows.h>
+#define exp 0.00000001
+
+int main()
+{
+	double a=0.0,b=0.0,c=0.0,d=0.0,z1=0.0,z2=0.0;
+	scanf("%lf %lf %lf",&a,&b,&c);
+	d=b*b-4*a*c;
+	if(a>-exp&&a<exp)
+		printf("不为二元一次方程\n");
+
+	else if(d>0)
+		printf("有两个不等的解z1=%lf,z2=%lf\n",(-b+sqrt(d))/2,(-b-sqrt(d))/2);
+
+	else if(d>-exp&&d<exp)
+		printf("有两个相等的解z1=z2=%lf\n",(-b+sqrt(d))/2);
+
+	else
+		printf("有两个共轭的解\n");
+
+	system("pause");
+	return 0;
+}
