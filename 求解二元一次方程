@@ -15,7 +15,7 @@ int main()
 
 	else if(d>0)
 		printf("有两个不等的解z1=%lf,z2=%lf\n",(-b+sqrt(d))/2,(-b-sqrt(d))/2);
-
+ 
 	else if(d>-exp&&d<exp)
 		printf("有两个相等的解z1=z2=%lf\n",(-b+sqrt(d))/2);
 
