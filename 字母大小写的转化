@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<windows.h>
+int main()
+{
+	char c;
+	do
+	{
+		c=getchar();
+		if( (c>=97) && (c<=122) )                          //若为小写则换位大写 大写则换位小写
+		{
+			printf("%c\n",c-32);
+            
+		}
+		else if( (c>=56) && (c<=90) )
+		{
+			printf("%c\n",c+32);
+		}
+		else
+		{
+			break;
+			printf("输入错误是否继续输入(y/n)\n");
+			getchar();
+			if( getchar() == 'y' )
+			{
+				c=1;
+			}
+			else
+			{break;}
+		}	
+		fflush(stdin);
+	}while( c! = EOF );
+	system("pause");
+	return 0;
+}
