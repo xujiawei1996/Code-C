@@ -1,0 +1,56 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<windows.h>
+
+int main()
+{
+	int i, num, a[33], tmp[33];
+	scanf("%d", &num);
+ 
+    printf("原来的\n");
+
+	printf("偶数位：");
+	for(i = 31; i>= 0 ; i-= 2)
+	{
+		a[i]=(num>>i&1);
+		printf("%d", a[i]);
+	}
+	printf("\n");
+
+	printf("奇数位：");
+	for(i = 30; i>= 0; i-= 2)
+	{
+		a[i]=(num>>i&1);
+		printf("%d", a[i]);
+	}
+	printf("\n");
+
+//因为我每一个都存的是a[i]，但是每一个的a[i]不一样，有的为奇数，有的为偶数
+//所以我们只用把a[i]与a[i-1]实现交换即可
+
+	for(i = 31; i>= 0; i-= 2)
+	{
+		tmp[i] = a[i];
+		  a[i] = a[i-1];
+		a[i-1] = tmp[i];
+	}
+
+	 printf("改变后的\n");
+
+	printf("偶数位：");
+	for(i = 31; i>= 0; i-= 2)
+	{
+		printf("%d",a[i]);
+	}
+	printf("\n");
+
+	printf("奇数位：");
+	for(i = 30; i>= 0; i-= 2)
+	{
+		printf("%d", a[i]);
+	}
+	printf("\n");
+
+	system("pause");
+	return 0;
+}
