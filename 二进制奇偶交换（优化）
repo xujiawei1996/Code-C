@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include <Windows.h>
+
+int main()
+{
+	int num;
+    scanf("%d",&num);
+
+//一个数字说白了其实为他二进制奇数位和偶数位的和
+//那么，如果要交换二进制序列，我们把奇数位换至偶数位，把偶数位换至奇数位，然后相加便可
+//如何交换，二进制序列左移一位，并把它按位与0101.可得到奇数位
+//二进制序列右一一位，并把它安慰与1010，得到偶数位
+//这俩相加便为奇偶交换的结果
+	
+	num=((num>>1)&0x55555555)+((num<<1)&0xaaaaaaaa);
+    printf("%d\n", num);    	
+	system("pause");
+	return 0;
+}
