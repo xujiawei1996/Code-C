@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+
+//用递归计算数字每一位，如果一个数字为三位数，自己调自己
+//再次进去自己，调用自己
+//第三次输出三位数的最后一位数
+//然后返回两位数，输出两位数的最后一位
+//返回一位数，输出一位数的最后一位
+
+void every_c(int _num)
+{
+	if(_num/10!=0)
+		every_c(_num/10);
+	printf("%d   ",_num%10);
+}
+
+int main()
+{
+	int num = 0;
+	scanf("%d", &num);
+	every_c(num);
+	system("pause");
+	return 0;
+}
