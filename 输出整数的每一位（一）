@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+
+
+int main()
+{	
+	int num,i=0,arr[20],j=0;
+	printf("请输入数字\n");
+	scanf("%d",&num);
+	while(num)
+	{
+		arr[i]=num%10;
+		i++;
+		num=num/10;
+	}
+	for(j=i-1;j>=0;j--)
+	{
+		printf("第%d位为：",i-j);
+		printf("%d\n",arr[j]);
+	}
+	system("pause");
+	return 0;
+	
+}
