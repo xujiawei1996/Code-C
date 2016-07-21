@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{	
+	char str1[15],str2[15],str3[15],str4[15];
+	int i=0,j=0,k=0;
+
+	printf("请输入账号：");
+	scanf("%s",str1);
+
+	printf("\n请输入密码:(初始化)");
+	scanf("%s",str2);
+
+	printf("\n初始化成功，请登录：");
+	printf("\n请输入账号：");
+	scanf("%s",str3);
+
+	while(j!=3)
+	{
+		printf("请输入密码：");
+		scanf("%s",str4);
+		if( strcmp ( str4 , str2 )!=0)
+		{
+			j++;
+			printf("出入密码错误 你还有%d次机会",3-j);
+		}	
+		if( strcmp ( str4 , str2 )==0)
+		{
+			printf("您密码正确\n");
+			break;
+		}
+	}
+
+	system("pause");
+	return 0;
+}
