@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+
+int main()
+{
+	long double i = 0.0;
+	long double j = 0.0;
+	printf("请输入两个数：\n");
+	scanf("%lf %lf",&i,&j);
+	printf("%lf",(i+j)/2);
+	system("pause");
+	return 0;
+}
