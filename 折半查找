@@ -1,0 +1,90 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+//
+//寻找下标的方法：先按照用户定义的范围初始化数组，把中间值mid=左右的一半。
+//进入判断，如果用户输入的不越界，那么进入while循环
+//如果要找的东西在mid右边，说明left应该向mid处移动。反之一样，right向mid移动。并且left和right不能包括mid，所以应对应加减1
+//mid就会改变，变为新的一半的左右和。
+//
+void find_xiabiao(int _j , int _left , int _right)
+{
+	int i,k=0;
+	int arr1[10000];
+	int mid = 0;
+
+	while(k<_j)
+	{
+		arr1[k]=k+1;						//	k为数组下标，这里为数组赋初值
+		k++;
+	}
+
+	mid = (_left+_right)>>1;
+
+	printf("你想找的数字:");
+	scanf("%d", &i);
+
+	if(i > _right || i < _left)
+	{
+		printf("不存在(-1)\n");
+	}
+	else
+	{
+	while (_left <= _right)
+	 {
+		if( i > arr1[mid])
+		{
+			_left = mid+1; 
+			mid = (_left+_right)>>1;			
+		}
+		else if(i < arr1[mid])
+		{
+			_right = mid-1;
+			mid = (_left+_right)>>1;
+		}
+		else 
+		{
+			printf("%d",mid);
+			break;
+		}	
+	  }
+	}
+}
+
+int main()
+{
+	int j = 0;
+	int ch = 0;
+	int left = 0;
+	int right = 0;
+//
+//我这里加了一个判断，如果有更加精确的范围能更改left和right的值，可以增加程序再利用性。
+//如果有更精确的判断则把新的left和right赋给find_下标
+//如果没有 则就为原有的 左为0 右为你输入大范围的j。
+//
+	printf("输入你想在1-j范围内找数字下标\n");
+	printf("请输入j:>");
+	scanf("%d",&j);
+	getchar();
+
+	printf("如果你想精确找请输入(y)\n");
+	ch=getchar();
+
+	if(ch=='y')
+	{
+		printf("输入你想在left-right范围内找数字下标\n");
+		printf("请输入left:>");
+		scanf("%d",&left);
+		printf("请输入right:>");
+		scanf("%d",&right);
+	}
+	else 
+	{
+		left = 0;
+		right = j;
+	}
+	find_xiabiao(j,left,right);
+	system("pause");
+	return 0;
+}
