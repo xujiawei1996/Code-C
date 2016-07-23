@@ -2,12 +2,14 @@
 
 #include<windows.h>
 #include<stdio.h>
+
 //
 //寻找下标的方法：先按照用户定义的范围初始化数组，把中间值mid=左右的一半。
 //进入判断，如果用户输入的不越界，那么进入while循环
 //如果要找的东西在mid右边，说明left应该向mid处移动。反之一样，right向mid移动。并且left和right不能包括mid，所以应对应加减1
 //mid就会改变，变为新的一半的左右和。
 //
+
 void find_xiabiao(int _j , int _left , int _right)
 {
 	int i,k=0;
