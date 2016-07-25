@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+
+int main()
+{
+	int i,avg=0;
+	int x;
+	scanf("%d %d",&i,&x);
+	avg = i-(i-x)/2;
+	printf("%d",avg);
+	system("pause");	
+	return 0;
+}
