@@ -1,0 +1,62 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+#include <time.h>
+
+enum OP
+{
+	EXIT,												//EXIT--0    PLAY----1
+	PLAY
+};
+
+void menu()
+{
+	printf("***********0.exit************\n");
+	printf("***********1.play************\n");
+}
+
+int play_game()
+{
+	int ran = 0;
+	int key = 0;
+	srand((unsigned)time(NULL));                    
+	ran =rand()%201;								//以时间戳为基数 随机变量ran
+	while (1)
+	{
+		printf("请输入：(%d)\n",ran);
+		scanf("%d",&key);
+		if(key > ran)
+		{
+			printf("大了\n");
+		}
+		else if (key < ran)
+		{
+			printf("小了\n");
+		}
+		else
+		{
+			printf("对了\n");
+			break;
+		}
+	}
+
+	return 0;
+}
+
+int main()
+{
+	int i = 0;
+	menu();
+	printf("请输入数字：\n");
+	scanf("%d", &i);
+	switch (i)
+	{
+	case EXIT:
+		break;
+	case PLAY:
+		play_game();
+	}
+	system("pause");
+	return 0;
+}
