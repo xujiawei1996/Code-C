@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+
+int main()
+{
+	char ch = 0;
+	int count = 0;
+	while((ch = getchar())!= EOF)
+	{
+		if (ch == '{')
+		{
+			count++;
+		}
+		if (ch == '}')
+		{
+			if (count == 0)
+			{
+				printf("不匹配");
+			}
+			else
+				count--;
+		}
+	}
+
+	if (count == 0)
+	{
+		printf("匹配");
+	}
+	else
+		printf("不匹配");
+
+	system("pause");
+	return 0;
+}
