@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+
+int main()
+{
+	long sum = 0;
+	int a = 0;
+	int n = 0;
+	int j = 0;
+	int k = 0;
+	printf("请输入n a\n");
+	scanf("%d %d",&n,&a);
+	k = a;
+	for(j=0; j<n; j++)
+	{
+		sum += k;
+		k = (k*10)+a;
+	}
+	printf("S(%d) = %d",n,sum);
+	system("pause");
+	return 0;
+}
