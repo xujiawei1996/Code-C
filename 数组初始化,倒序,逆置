@@ -1,0 +1,105 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+#include <string.h>
+enum OP
+{
+	EXIT,
+	init,
+	empty,
+	reverse
+};
+
+void menu()
+{
+	printf("**********************0.退出**********************\n");
+	printf("*******************1.初始化数组*******************\n");
+	printf("*******************2.所有元素归零*******************\n");
+	printf("*******************3.数组元素逆置*******************\n");
+}
+
+void init1()
+{
+	char arr1[1000];
+	int num = 0;
+	int len = 0;
+	int i = 0;
+	printf("请输入一个数组：>");
+	gets(arr1);
+	printf("请输入你要初始化的值:>");
+	scanf("%d",&num);
+	len = strlen(arr1);
+	memset(arr1,num,len);                        //把len为arr1数组长度的数组值全变为num
+	for(i = 0; i < len; i++)					//然后给每个arr1赋值
+	{
+		printf("%d",arr1[i]);
+	}
+	printf("\n");
+}
+
+void empty1()
+{
+	char arr1[1000];
+	int i = 0;
+	int len = 0;
+	printf("请输入一个数组：>");
+	gets(arr1);
+	len = strlen(arr1);
+	memset(arr1,0,len);							//这里直接把0赋给arr1即可
+	for(i = 0; i < len; i++)
+	{
+		printf("%d",arr1[i]);
+	}
+	printf("\n");
+}
+
+void reverse1()
+{
+	char arr1[1000];
+	int i = 0;
+	int len = 0;
+	printf("请输入一个数组：>");
+	gets(arr1);
+	len = strlen(arr1);
+	for(i = len-1; i >= 0; i--)				//倒序输出即可
+	{
+		printf("%c",arr1[i]);
+	}
+	printf("\n");
+}
+
+
+int main()
+{
+	int p;
+
+	while( menu(),(scanf("%d",&p))!=0)
+	{  
+		getchar();
+		switch(p)
+		{
+
+		case EXIT:
+			return 0;
+
+		case init:
+			init1();
+			break;
+
+		case empty:
+			empty1();
+			break;
+
+		case reverse:
+			reverse1();
+			break;
+
+		default:
+			printf("输入错误，请重新输入\n");
+			break;
+		}
+	}
+	system("pause");
+	return 0;
+}
