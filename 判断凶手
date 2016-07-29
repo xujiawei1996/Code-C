@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include<windows.h>
+
+int main()
+{	
+	int i = 0;
+	char kill;
+	for (i=0; i<=3; i++)
+	{
+		kill = 97+i;
+		if (((kill!='a')+(kill=='c')+(kill=='d')+(kill!='d'))==3)
+		{
+			printf("%c\n",kill);
+			break;
+		}
+	}
+	system("pause");
+	return  0;
+}
