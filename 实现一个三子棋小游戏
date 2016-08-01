@@ -7,7 +7,7 @@
 char arr [3][3] ={0};
 int capacity = 9;
 
-enum OP
+enum OP 
 {
        exit1,
        play
