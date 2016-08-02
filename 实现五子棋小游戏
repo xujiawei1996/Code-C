@@ -1,0 +1,260 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+#include <time.h>
+
+//这里数组和棋盘数必须定义为全局变量 因为要被方法调用
+
+char arr[5][5] = {0};
+int capacity = 25;
+
+enum OP1
+{
+	exit1,
+	play
+};
+
+enum OP2
+{
+	cd,
+	youfirst,
+	computerfirst
+	
+};
+
+void menu1()
+{
+	printf("-------------------------------------------------------------\n");
+	printf("|***************************0.退出**************************|\n");
+	printf("|***************************1.开玩**************************|\n");
+	printf("-------------------------------------------------------------\n");
+}
+
+void menu2()
+{
+	printf("-------------------------------------------------------------\n");
+	printf("|*************************0.返回上界面**********************|\n");
+	printf("|**************************1.玩家先手***********************|\n");
+	printf("|**************************2.电脑先手***********************|\n");
+	printf("-------------------------------------------------------------\n");
+}
+
+//这是输出数组方法
+//每一个输出即可
+//为了增加美观i<4每个要多输出一行 这样可以让棋盘更大
+
+void print_board()
+{
+	int i = 0;
+	int j = 0;
+	printf("______________________________\n");
+	printf("     |     |     |     |     |\n");
+	for(i = 0;i<5;i++)
+	{
+		for (j = 0;j<5;j++)
+		{
+			
+			printf("__%c__|",arr[i][j]);
+		}
+		if (i<4)
+		{
+			printf("\n     |     |     |     |     |\n");
+		}
+		
+	}
+}
+
+//这是人下棋的方法：
+//这里需要人输入需要落子的下标
+//如果越界了 或者此位置已经有子了 则不行
+//否则把子放到此数 并棋盘总格数减一
+
+void peopleplaying_chess()
+{
+	int x = 0;
+	int y = 0;
+	printf("\n请输入你要下的坐标:>");
+	scanf("%d %d",&x,&y);
+	if (x<1||x>5||y<1||y>5&&arr[x][y]!=' ')
+	{
+		printf("输入越界,重新输入\n");
+		peopleplaying_chess();
+	}
+	else
+	{
+		arr[x-1][y-1] = 'X';
+		capacity--;
+	}	
+}
+
+//这是电脑走的方法;
+//电脑走的位置肯定是随机数 那么我们用rand来输出随机数
+//！！！这里需注意 必须让时间戳为基数随机 不然每次随机数是一样的！！！
+//随机数取了之后赋给数组下标 这时需要有一个判断 如果这个位置已经有元素了 那么必须重新取随机数 重新给xy赋值 所以用while循环
+//如果随机的XY数组下标，此数组在此下标没有元素，则赋值并把总棋盘数减一
+//棋盘数减到0 即为平局
+
+void complaying_chess()
+{
+	int x = 0;
+	int y = 0;
+	srand((unsigned)time(NULL));  
+	x = rand()%5;
+	y = rand()%5;
+	while(arr[x][y]!=' ')
+	{
+		x = rand()%5;
+		y = rand()%5;
+	}
+	arr[x][y] = '0';
+	capacity--;
+}
+
+
+//这是判断输赢的方法:
+//5*5的棋盘 如果某一行或者某一列或者斜对角统一 则一方赢了 如果下到最后都没有上述条件 则平局
+//那么嵌套循环判断 我没有想出来 所以用笨办法 一个一个写
+//人赢 返回1
+//电脑赢 返回2
+//平局 返回3
+//
+
+int winer()
+{
+	int i = 0;
+	for (i = 0; i<5; i++)
+	{
+			if ( (arr[0][i]=='X' && arr[1][i]=='X' && arr[2][i]=='X' && arr[3][i]=='X' && arr[4][i]=='X') ||
+				 (arr[i][0]=='X' && arr[i][1]=='X' && arr[i][2]=='X' && arr[i][3]=='X' && arr[i][4]=='X') ||
+				 (arr[0][0]=='X' && arr[1][1]=='X' && arr[2][2]=='X' && arr[3][3]=='X' && arr[4][4]=='X') || 
+				 (arr[0][4]=='X' && arr[1][3]=='X' && arr[2][2]=='X' && arr[3][1]=='X' &&arr[4][0]=='X'))
+			{
+				return 1;
+			}
+
+			if ((arr[0][i]=='0' && arr[1][i]=='0' && arr[2][i]=='0' && arr[3][i]=='0' && arr[4][i]=='0') ||
+				(arr[i][0]=='0' && arr[i][1]=='0' && arr[i][2]=='0' && arr[i][3]=='0' && arr[i][4]=='0') ||
+				(arr[0][0]=='0' && arr[1][1]=='0' && arr[2][2]=='0' && arr[3][3]=='0' && arr[4][4]=='0') ||
+				(arr[0][4]=='0' && arr[1][3]=='0' && arr[2][2]=='0' && arr[3][1]=='0' && arr[4][0]=='0'))
+			{
+				return 2;
+			}
+
+			if (capacity == 0)
+			{
+				return 3;
+			}
+	}
+return 0;
+}
+
+int main()
+{
+	int i = 0,j = 0;
+	int num1 = 0;
+	int num2 = 0;  
+	//num1是第一个switch--第一次输入，num2是第二个switch--第二次输入
+	//这里flag必须放到这里，因为如果要再次玩的话，数组要初始化一下，不然还是以前的值
+	//这里多了两个判断 第一个玩家先手 第二个电脑先手
+	//如果是玩家先手的话 那么就要打印初始化的棋盘并且先让玩家走
+	//如果是电脑先手的话 那么就不需要先打印初始化的棋盘 在电脑走后直接打印电脑走后的棋盘便可
+	//玩家走和电脑走之前都要判断是不是已经有人赢了 如果有人赢了 那另外一个人就不用走了
+	//最后 为什么用goto语句 因为简单快捷啊 哈哈哈哈
+flag:	
+	for (i = 0;i<5;i++)
+	{
+		for(j = 0;j<5;j++)
+		{
+			arr[i][j] = ' ';
+		}
+	}
+	menu1();
+	scanf("%d",&num1);
+	switch(num1)
+	{
+
+	case exit1:
+		return 0;
+	case play:
+		menu2();
+		scanf("%d",&num2);
+		switch(num2)
+		{
+		case youfirst:
+			{
+				while(1)
+				{
+					print_board();
+					if ( winer()==1 || winer()==2 || winer()==3 )
+					{
+						break;
+					}
+					peopleplaying_chess();
+					if ( winer()==1 || winer()==2 || winer()==3 )
+					{
+						break;
+					}
+					complaying_chess();
+				}
+				if (winer()==1)
+				{
+					printf("\n你赢啦！！！\n");
+					goto flag;
+				}
+				if (winer()==2)
+				{
+					printf("\n电脑赢了！！！\n");
+					goto flag;
+				}
+				if (winer()==3)
+				{
+					printf("\n平局了！！！\n");
+					goto flag;
+				}
+			}
+
+		case computerfirst:
+			{
+				while(1)
+				{
+					if ( winer()==1 || winer()==2 || winer()==3 )
+					{
+						break;
+					}
+					complaying_chess();
+					print_board();
+					if ( winer()==1 || winer()==2 || winer()==3 )
+					{
+						break;
+					}
+					peopleplaying_chess();
+				}
+				if (winer()==1)
+				{
+					printf("\n你赢啦！！！\n");
+					goto flag;
+				}
+				if (winer()==2)
+				{
+					printf("\n电脑赢了！！！\n");
+					goto flag;
+				}
+				if (winer()==3)
+				{
+					printf("\n平局了！！！\n");
+					goto flag;
+				}
+			}
+		case cd:
+			goto flag;
+		default:
+			break;
+		}
+	default:
+		return 0;
+	}
+
+	system("pause");
+	return 0;	
+}
