@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+
+int main()
+{
+	char arr1[1024] = {0};
+	char arr2[1024] = {0};
+	int len = 0;
+	int left = 0;
+	int right = 0;
+	gets(arr1);
+	len = strlen(arr1);
+	right = len;
+	memset(arr2,'#',len);
+	printf("%s\n",arr2);
+	while ( left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		left++;
+		right--;
+		printf("%s\n",arr2);
+		Sleep(1000);
+	}
+
+	system("pause");
+	return 0;
+}
