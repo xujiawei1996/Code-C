@@ -1,0 +1,30 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+
+int judedifferent (int i, int j)
+{
+       int k = 0;
+       int count = 0;
+       k = i ^j;
+       while (k !=0)
+      {
+             k = k &(k-1);
+             count++;
+      }
+       return count ;
+}
+
+int main ()
+{
+       int i = 0;
+       int j = 0;
+       int count = 0;
+       printf(" 请输入两个整数： >");
+       scanf("%d %d" ,&i,& j);
+       count = judedifferent (i, j);
+       printf("%d\n" ,count);
+       system("pause" );
+       return 0;
+}
