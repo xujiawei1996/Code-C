@@ -1,0 +1,35 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+#include <math.h>
+
+//value每次按位与,无非两个值或者赋给 j
+//value挪位置，左移一个
+//sum就是j 乘以次方数
+
+unsigned int   reverse( unsigned int value)
+{
+       int i = 0;
+       int j = 0;
+       int sum = 0;
+       while(i ++,i<32)
+      {
+             j = value &1;
+             value=value >>1;
+             sum += j *(int) pow(2,(32-i ));
+      }
+       return sum ;
+}
+
+int main ()
+{
+       int value = 0;
+       printf(" 请输入数字:>");
+       scanf("%d" ,&value);
+       printf(" 此数字翻转后如下： >\n");
+       printf("%u" ,reverse( value));
+       system("pause" );
+       return 0;
+}
