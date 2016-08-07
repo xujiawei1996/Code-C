@@ -1,0 +1,63 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+#include <assert.h>
+
+int my_len (const char* str )
+{
+       int count = 0;
+       while (*str != '\0')
+      {
+             count++;
+             str++;
+      }
+       return count ;
+}
+
+void reverse_str (char* left,char * right)
+{
+       assert(left !=NULL);
+       assert(right !=NULL);
+       while (left <right)
+      {
+             char tmp = *left;
+            *left = *right ;
+            *right = tmp ;
+             right--;
+             left++;
+      }
+}
+
+void all_reverse (char * str)
+{
+       char* start = NULL;
+       char* end = NULL;
+       int len = my_len( str);
+       reverse_str(str ,str+ len-1);
+       while(*str != '\0')
+      {
+             start = str ;
+             while ((*str !=' ')&&(* str!='\0' ))
+            {
+                   str++;
+            }
+             end = str -1;
+             reverse_str(start ,end);
+             if (*str !='\0')
+            {
+                   str++;
+            }
+      }
+
+}
+
+int main ()
+{
+       char arr [] = "i am a student";
+       all_reverse(arr );
+       printf("%s\n" ,arr);
+       system("pause" );
+       return 0;
+}
