@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+int fib (int num)
+{
+       int num1 = 1;
+       int num2 = 1;
+       int num3 = 1;
+       int i = 3;
+       while ((i ++)<=num )
+      {
+             num3 = num1 +num2;
+             num1 = num2 ;
+             num2 = num3 ;
+      }
+       return num3 ;
+}
+
+int main ()
+{
+       int num = 0;
+       scanf("%d" ,&num);
+       printf("%d" ,fib( num));
+       system("pause" );
+       return 0;
+}
