@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+
+void replaced (char* str)
+{
+       int countblank = 0;
+       int newlen = 0;
+       int i = 0;
+       int old_str_end = 0, new_str_end = 0;
+       int len = strlen( str);
+       for (i =0;i< len;i ++)
+      {
+             if (*(str +i)== ' ')
+            {
+                   countblank++;
+            }
+      }
+       newlen = strlen (str)+ countblank*2;
+       old_str_end = strlen (str)-1;
+       new_str_end = newlen -1;
+       while (old_str_end != 0)
+      {
+             if (str [old_str_end] == ' ')
+            {
+                   str[new_str_end --] ='0';
+                   str[new_str_end --] ='2';
+                   str[new_str_end ] ='%';
+            }
+             else
+            {
+                   str[new_str_end ] = str[ old_str_end];
+                  
+            }
+             new_str_end--;
+             old_str_end--;         
+      }
+}
+
+int main ()
+{     
+       char str [30] = "i am a student";
+       replaced(str );
+       printf("%s\n" ,str);
+       system("pause" );
+       return 0;
+}
