@@ -1,0 +1,30 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include<stdio.h>
+#include <assert.h>
+
+void reverse (char* str)
+{
+       char* left = str;
+       int len = strlen( str);
+       char* right = str+ len-1;
+       while (left <right)
+      {
+             char tmp = *left;
+            * left = *right ;
+            * right = tmp ;
+             left++;
+             right--;
+      }
+}
+
+int main ()
+{
+       char str [] = "hello world";
+       reverse(str );
+       printf("%s" ,str);
+       system("pause" );
+       return 0;
+}
