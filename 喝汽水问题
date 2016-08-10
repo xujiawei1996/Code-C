@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+int cal (int money)
+{
+       int count = 0;
+       int pingzishu = 0;
+       while(money )
+      {
+             pingzishu++;
+             count++;
+             money--;
+             if (pingzishu == 2)
+            {
+                   pingzishu = 0;
+                   pingzishu++;
+                   count++;
+            } 
+      }
+       return count ;
+}
+
+int main ()
+{
+       int money = 20;
+       printf("%d" ,cal( money));
+       system("pause" );
+       return 0;
+}
