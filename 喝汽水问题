@@ -27,4 +27,4 @@ int main ()
        printf("%d" ,cal( money));
        system("pause" );
        return 0;
-}
+} 
