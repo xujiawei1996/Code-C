@@ -1,0 +1,32 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+#include <string.h>
+
+void left_reverse (char * left,char *right)
+{
+       while (left < right)
+      {
+             char tmp = *left;
+            * left = *right ;
+            * right = tmp ;
+             left++;
+             right--;
+      }     
+}
+
+int main ()
+{
+       char arr [] = "abcdef";
+       int k = 0;
+       int len = strlen( arr);
+       scanf("%d" ,&k);
+       left_reverse(arr ,arr+ k-1);
+       left_reverse(arr +k, arr+len -1);
+       left_reverse(arr ,arr+ len-1);
+       printf("%s" ,arr);
+       system("pause" );
+       return 0;
+}
