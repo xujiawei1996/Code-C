@@ -1,0 +1,96 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+enum OP
+{
+       zuozhuan,
+       youzhuan
+};
+
+void zuoxuan (char* arr,int i)
+{
+       int len = strlen( arr)-1;
+       int j = 0,k = 1;
+       char *start = arr;
+       while (j <i)
+      {
+             char *start = arr;
+             k = 0;
+             while (k <len)
+            {
+                   char tmp = *start;
+                  * start = *(start +1);
+                  *( start+1) = tmp ;
+                   start++;
+                   k++;
+            }
+             j++;
+      }
+}
+
+void youxuan (char * str1, int i)
+{
+       int len = strlen( str1);
+       int j = 0;
+       int k = 0;
+       char *start = str1+ len-1;
+       while (j <i)
+      {
+             char *start = str1+ len-1;
+             k = 0;
+             while (k <len-1)
+            {
+                   char tmp = *start;
+                  * start = *(start -1);
+                  *( start-1) = tmp ;
+                   start--;
+                   k++;
+            }
+             j++;
+      }
+}
+int bijiao (char * str1,char *str2)
+{
+       int ret = strcmp( str1,str2 );
+       if (ret == 0)
+      {
+             return 1;
+      }
+       else
+             return 0;
+}
+
+int main ()
+{
+       int i = 0,j = 0;
+       int ret = 0;
+       char str1 [] = "AABCD";
+       char str2 [6] = {0};
+       printf(" 输入你想比较的字符 \n");
+       gets(str2 );
+       printf(" 输入你想左转 (0)还是右转(1):>" );
+       scanf("%d" ,&j);
+       switch(j )
+      {
+       case zuozhuan :
+             printf(" 请输入左转几个字符 :>");
+             scanf("%d" ,&i);
+             zuoxuan(str1 ,i);
+             printf(" 左旋结果为:>%s\n", str1);
+             printf("%d\n" ,bijiao( str1,str2 ));
+             break;
+       case youzhuan :
+             printf(" 请输入右转几个字符 :>");
+             scanf("%d" ,&i);
+             youxuan(str1 ,i);
+             printf(" 右旋结果为:>%s\n", str1);
+             printf("%d\n" ,bijiao( str1,str2 ));
+             break;
+       default:
+             break;
+      }
+       system("pause" );
+       return 0;
+}
