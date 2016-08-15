@@ -1,0 +1,39 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+#include <string.h>
+
+int reverse (char * arr1,char *arr2, int len )
+{
+       strncat(arr1 ,arr1, strlen(arr1 ));
+       if(strstr (arr1, arr2))
+      {
+             if (strlen (arr2) != len)
+            {
+                   printf("no\n" );
+                   system("pause" );
+                   return 0;
+            }
+             return 1;
+      }
+       else
+      {
+             return 0;
+      }
+}
+
+int main ()
+{
+       char arr1 [20] = "abcdef";
+       char arr2 [] = "cdefabaas";
+       int len = strlen( arr1);
+       if (reverse (arr1, arr2,len ))
+      {
+             printf("ok\n" );
+      }
+       else
+             printf("no\n" );  
+       system("pause" );
+       return 0;
+}
