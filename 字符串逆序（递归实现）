@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+
+void my_reverse (char * arr)
+{
+       int len = strlen( arr);
+       char tmp = arr[0];
+       arr[0] = arr [len-1];
+       arr[len -1] = '\0';
+       if (strlen (arr+1)>=2)
+      {
+             my_reverse(arr +1);
+      }
+       arr[len -1] =tmp;
+}
+int main ()
+{
+       char arr [] = "hello";
+       my_reverse(arr );
+       printf("%s" ,arr);
+       system("pause" );
+       return 0;
+}
