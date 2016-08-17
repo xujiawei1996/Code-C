@@ -1,0 +1,32 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+#include <stdarg.h>
+
+int MAX (int n,...)
+{
+       int i = 0;
+       int max = 0;
+       va_list arg ;
+       va_start(arg ,n);
+       max = va_arg (arg, int);                 //这里比较要和第一个比较，不能和0比，如果为负值就不成立
+       for(i = 1;i< n;i ++)
+      {
+             int val = va_arg( arg,int );
+             if (val >max)
+            {
+                   max = val ;
+            }
+      }
+       va_end(arg );
+       return max ;
+}
+
+int main ()
+{
+       printf("%d" ,MAX(3,-2,-3,-3));
+       system("pause" );
+       return 0;
+}
