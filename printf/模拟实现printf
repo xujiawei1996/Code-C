@@ -1,0 +1,48 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+#include <stdarg.h>
+
+void my_printf (char * ft, ...)
+{
+       char *s ;
+       char c ;
+       int d ;
+       va_list arg ;
+       va_start(arg ,ft);
+       while (*ft )
+      {
+             switch(*ft )
+            {
+             case 's' :
+                   s = va_arg (arg, char*);
+                   while (*s )
+                  {
+                         putchar(*s );
+                         s++;
+                  }
+                   break;
+             case 'c' :
+                   c = va_arg (arg, char);
+                   putchar(c );
+                   break;
+             case 'd' :
+                   d = va_arg (arg, int);
+                   putchar(d +'0');
+                   break;
+             default:
+                   putchar(*ft );
+                   break;
+            }
+             ft++; 
+      }
+       va_end(arg );
+}
+
+int main ()
+{
+       my_printf("s cccd" ,"hello", 'w','o' ,'l',12);
+       system("pause" );
+       return 0;
+}
