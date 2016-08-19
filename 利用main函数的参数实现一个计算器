@@ -1,0 +1,36 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main (int argc,char *argv[])
+{
+       int sum = 0;
+       int sum1 = atoi( argv[2]);
+       int sum2 = atoi( argv[3]);
+       char *p = argv[1];
+       switch( *(p +1) )
+      {
+       case 'a' :
+             sum = sum1 +sum2;
+             break;
+       case 's' :
+             sum = sum1 -sum2;
+             break;
+       case 'm' :
+             sum = sum1 *sum2;
+             break;
+       case 'd' :
+             sum = sum1 /sum2;
+             break;
+       default:
+             printf("error\n" );
+             exit(0);
+      }
+       printf("%d" ,sum);
+       system("pause" );
+       return 0;
+}
