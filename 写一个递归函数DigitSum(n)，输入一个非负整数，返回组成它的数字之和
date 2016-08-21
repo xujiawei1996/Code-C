@@ -1,0 +1,21 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<windows.h>
+#include <stdio.h>
+
+int DigitSum (unsigned int n )
+{
+       if(n <10)
+             return n ;
+       else
+             return n %10 + DigitSum( n/10);
+}
+int main ()
+{
+       unsigned int n = 0;
+       scanf("%u" ,&n);
+       printf("%u" ,DigitSum( n));
+       system("pause" );
+       return 0;
+}
