@@ -23,7 +23,7 @@ int* bubble_sort (int str[N ])
        return str ;
 }
 
-int main ()
+int main () 
 {
        int i =0;
        int str [N] ={9,1,5,6,2,3,4};
