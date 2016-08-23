@@ -1,0 +1,37 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+#define  N 7
+
+int* bubble_sort (int str[N ])
+{
+       int i = 0,j = 0;
+       for(j = 0;j< N-1;j ++)
+      {
+             for (i = 0;i< N-1-j ;i++)
+            {
+                   if (str [i] > ( str[i +1]))
+                  {
+                         int tmp = str[ i];
+                         str[i ] = str[ i+1];
+                         str[i +1] = tmp;
+                  }
+            }
+      }
+       return str ;
+}
+
+int main ()
+{
+       int i =0;
+       int str [N] ={9,1,5,6,2,3,4};
+       bubble_sort(str );
+       for (i = 0;i< N;i ++)
+      {
+             printf("%d" ,str[ i]);
+      }
+       system("pause" );
+       return 0;
+}
