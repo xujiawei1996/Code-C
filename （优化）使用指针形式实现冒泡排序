@@ -1,0 +1,52 @@
+
+#include<windows.h>
+#include<stdio.h>
+
+int* bubble_sort (int * str,int len)
+{
+       int *start = str;
+       int i = 0,j = 0;
+             start = str ;
+             for (i = 0;i< len-1;i ++)
+            {
+                   if (*start > *(start+1))
+                  {
+                         int tmp = *start;
+                        * start = *(start +1);
+                        *( start+1) = tmp ;
+                         start++;
+                  }
+                   else
+                         start++;
+            }
+       return str ;
+}
+
+int* panduan (int * str,int len)
+{
+       while (len -2)
+      {
+             if (*(str +1) >= *str && *( str+1) <= *(str +2))
+            {
+                   str++;
+                   len--;
+            }
+             else
+                   bubble_sort(str ,len);
+      }
+       return str ;
+}
+
+int main ()
+{
+       int i =0;
+       int str [] ={7,1,8,4,2,2,3,4,5,6};
+       int len = (sizeof( str)/sizeof (str[0]));
+       panduan(str ,len);
+       for (i = 0;i< len;i ++)
+      {
+             printf("%d" ,str[ i]);
+      }
+       system("pause" );
+       return 0;
+}
