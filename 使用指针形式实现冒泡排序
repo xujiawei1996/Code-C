@@ -1,0 +1,45 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+int* bubble_sort (int * str,int len)
+{
+       int *start = str;
+       int i = 0,j = 0;
+       for(j = 0;j< len;j ++)
+      {
+             int flag = 1;
+             start = str ;
+             for (i = 0;i< len-j ;i++)
+            {
+                   if (*start > *(start+1))
+                  {
+                         int tmp = *start;
+                        * start = *(start +1);
+                        *( start+1) = tmp ;
+                         start++;
+                         flag = 0;
+                  }
+                   else
+                         start++;
+            }
+             if (flag == 1)
+             break;
+      }
+       return str ;
+}
+
+int main ()
+{
+       int i =0;
+       int str [] ={9,1,5,6,2,3,4};
+       int len = (sizeof( str)/sizeof (str[0])) - 1;
+       bubble_sort(str ,len);
+       for (i = 0;i<= len;i ++)
+      {
+             printf("%d" ,str[ i]);
+      }
+       system("pause" );
+       return 0;
+}
