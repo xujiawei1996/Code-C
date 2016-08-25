@@ -1,0 +1,42 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+
+int* reverse (int * arr,int len)
+{
+       int *left = arr;
+       int *right = arr+ len-1;
+       while (left <right)
+      {
+            
+             if (*left %2 == 0)
+            {
+                   if (*right %2 == 1)
+                  {
+                         int tmp = *left;
+                        * left = *right ;
+                        * right = tmp ;
+                         left++;
+                  }
+                   right--;
+            }
+             else
+             left++;
+      }
+       return arr ;
+}
+
+int main ()
+{
+       int arr [] = {1,1,2,2,3,3,4,6,7,9,1};
+       int i = 0;
+       int len = sizeof( arr)/sizeof (arr[0]);
+       reverse(arr ,len);
+       for (i = 0;i< len;i ++)
+      {
+             printf("%d" ,arr[ i]);
+      }
+       system("pause" );
+       return 0;
+}
