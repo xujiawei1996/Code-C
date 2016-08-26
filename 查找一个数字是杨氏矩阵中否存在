@@ -1,0 +1,38 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+#define x 3
+#define y 3
+
+int yangshi (int arr[x ][y], int num )
+{
+       int i = 0;
+       int j = y-1;
+       while (j >=0)
+      {
+             int *q = &(arr[ i][j ]);
+             if (*q == num)
+            {
+                   return 1;
+            }
+             else if (*q < num)
+            {
+                   i++;
+            }
+             else if (*q > num)
+            {
+                   i--;
+                   j--;
+            }
+      }
+       return -1;
+}
+
+int main ()
+{
+       int arr [x][ y] = {{1,2,3},{4,5,6},{7,8,9}};
+       printf("%d\n" , yangshi( arr, 6)); 
+       system("pause" );
+       return 0;
+}
