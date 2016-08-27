@@ -1,0 +1,37 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+
+void selection_sort (int * arr,int sz)
+{
+       int i = 0,j = 0;
+       int min = 0;
+       for (j = 0;j< sz-1;j ++)
+      {
+             min = j ;
+             for (i = j+1; i<sz ;i++)
+            {
+                   if(*(arr +min) > *( arr+i ))
+                   min = i ;
+            }
+                   if (min !=j)
+                  {
+                         int tmp = *(arr+ min);
+                        *( arr+min ) = *(arr+ j);
+                        *( arr+j ) = tmp;
+                  }
+      }
+}
+
+int main ()
+{
+       int i ;
+       int arr [] = {1,2,4,3,8,7,5};
+       int sz = sizeof( arr)/sizeof (arr[0]);
+       selection_sort(arr ,sz);
+       for(i = 0;i< sz;i ++)
+       printf("%d" ,arr[ i]);
+       system("pause" );
+       return 0;
+}
