@@ -1,0 +1,34 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+char find_ch (char * str1,char *str2, int sz )
+{
+       int i = 0,j = 0;
+       int math = 0;
+       for (i = 0;i< sz;i ++)
+      {
+             math = str1 [i];
+             str2[math ] = str2[ math]+1;
+      }
+       for (j = 0;j<256; j++)
+      {
+             if (str2 [(*(str1+ j))] == '1' )
+            {
+                   return *(str1 +j);
+            }
+      }
+       return '0' ;
+}
+
+int main ()
+{
+       char arr1 [] = "aaaabc!cbwd";
+       int sz = strlen( arr1);
+       char arr2 [256] = {0};
+       memset(arr2 ,'0',256);
+       printf("%c" ,find_ch( arr1,arr2 ,sz));
+       system("pause" );
+       return 0;
+}
