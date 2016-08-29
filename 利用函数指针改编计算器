@@ -1,0 +1,54 @@
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+
+void menu ()
+{
+       printf("1.add     2.sub 3.mul 4.div 0.exit\n" );
+}
+
+int Add (int n1,int n2)
+{
+       return n1 +n2;
+}
+
+int Sub (int n1,int n2)
+{
+       return n1 -n2;
+}
+
+int Mul (int n1,int n2)
+{
+       return n1 *n2;
+}
+
+int Div (int n1,int n2)
+{
+       return n1 /n2;
+}
+int main ()
+{     
+       int num = 1;
+       int n1 = 0,n2 = 0;
+       int ret = 0;
+       int(*p [5])(int n1,int n2) = {0, Add,Sub ,Mul, Div};
+       while (num != 0)
+      {
+       menu();
+       printf(":>" );
+       scanf("%d" ,&num);
+       if (num != 0)
+      {
+
+             printf(" 请输入n1， n2:>");
+             scanf("%d %d" ,&n1,& n2);
+             ret = (*p [num])( n1,n2 );
+             printf("%d\n" ,ret);
+      }
+      }
+      
+      
+       system("pause" );
+       return 0;
+}
