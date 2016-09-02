@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include<stdio.h>
+
+int my_strlen (const char *arr1 )
+{
+       int i = 0;
+       while (arr1 [i++])
+      {
+            ;
+      }
+       return i -1;
+}
+
+int main ()
+{
+       char arr1 []={"hello world"};
+       printf("%d\n" ,my_strlen( arr1));
+       system("pause" );
+       return 0;
+}
