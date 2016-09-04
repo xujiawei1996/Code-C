@@ -1,0 +1,23 @@
+
+char* my_strcpy(char*dest,constchar*scr)
+{
+       char* ret =dest;
+       assert(dest !=NULL);
+       assert(scr !=NULL);
+       while (*dest ++ = *scr++)                         //此处*dest=*scr ，如果最后一个是 \0 他的值也是刚好可以退出                                                                
+      {                                                            //退出后每次给dest与 scr自增一
+            ;
+      }
+       return ret ;                                            //这里定义ret 是要符合定义函数的原型， char*，应该返回一个指针
+
+}
+
+int main ()
+{
+       char arr [20] = {0};
+       char *p = "hello world";
+       my_strcpy(arr ,p);
+       printf("%s\n" ,arr);
+       system("pause" );
+       return 0;
+}
