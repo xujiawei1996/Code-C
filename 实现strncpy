@@ -1,0 +1,30 @@
+
+char *my_strncpy (char * dest,const char * src,int sz)
+{
+       char *ret = dest;
+       assert(dest != NULL);
+       assert(src != NULL);
+       while (sz && *src)
+      {
+            * dest++ = *src ++;
+             sz--;
+      }
+       if (sz !=0)
+      {
+             while (sz )
+            {
+                  * dest = '\0' ;
+                   sz--;
+            }
+      }
+       return ret ;
+}
+
+int main ()
+{
+       char arr1 [20] ="hello world";
+       my_strncpy(arr1 ,"abcdefgh",9);
+       printf("%s\n" ,arr1);
+       system("pause" );
+       return 0;
+}
