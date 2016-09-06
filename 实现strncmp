@@ -1,0 +1,22 @@
+
+int my_strncmp (const char *str1 , const char *str2 , int count)
+{
+       while (--count && *str1 == * str2)
+      {
+             if (*str1 == '\0')
+            {
+                   return 0;
+            }
+             str1++;
+             str2++;
+      }
+       return *str1 - *str2;
+}
+
+int main ()
+{
+       char arr1 [] = "abc0d";
+       int ret = my_strncmp( arr1,"abc0f" ,5);
+       printf("%d" ,ret);
+       system("pause" );
+       return 0;
