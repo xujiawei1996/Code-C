@@ -1,0 +1,27 @@
+
+#define_CRT_SECURE_NO_WARNINGS 1
+#include<windows.h>
+#include <stdio.h>
+#include <assert.h>
+
+char* my_strchr (const char *str ,char ch)
+{
+       while (*str && *str != ch)
+      {
+             str++;
+      }
+       if (*str == ch)
+      {
+             return (char *)str;
+      }
+       return  NULL ;
+}
+
+int main ()
+{
+       char arr [] = "hello world";
+       char ch = 'l';
+       printf("%s" ,my_strchr( arr,ch ));
+       system("pause" );
+       return 0;
+}
