@@ -1,0 +1,28 @@
+
+char* my_strcat (char * dest,const char * src)
+{
+       char *ret = dest;
+       assert(dest != NULL);
+       assert(src != NULL);
+      
+       while (*dest != '\0')                   //此处*dest=*scr ，如果最后一个是 \0  则循环结束
+      {
+             dest++;
+      }
+
+       while (*dest ++ = *src++)               //在刚才的dest位置开始匹配，scr赋给dest
+      {
+            ;
+      }
+       return ret ;
+}
+
+int main ()
+{
+       char str1 [40] = "helloasds";          //此处要注意数组不能太小，否则数组长度太小追加会越界，程序崩溃
+       char str2 [] = "world";
+       my_strcat(str1 ,str2);
+       printf("%s" ,str1);
+       system("pause" );
+       return 0;
+}
