@@ -1,0 +1,30 @@
+
+char* my_strncat (char * dest,const char * src,int count)
+{
+       char *ret = dest;
+       assert(dest != NULL);
+       assert(src != NULL);
+      
+       while (*dest != '\0')
+      {
+             dest++;
+      }
+
+       while (count && *src!= '\0')                   //这里是以count和*src为判断条件 一个不成立就退出
+      {
+            *( dest++) = *(src ++);
+             count--;
+      }
+      * dest = '\0' ;                                 //这里要在最后加一个\0，不然输出停不下来
+       return  ret;
+}
+
+int main ()
+{
+       char dest [20] = "hello ";
+       char *src = "world";
+       my_strcat(dest ,src,10);
+       printf("%s" ,dest);
+       system("pause" );
+       return 0;
+}
