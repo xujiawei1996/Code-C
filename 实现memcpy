@@ -1,0 +1,25 @@
+
+void *my_memcpy (void * dest,const void * src,int count)
+{
+       void *ret = dest;
+       assert(dest != NULL);
+       assert(src != NULL);
+       while (count )
+      {
+            *(( char*)dest ) = *((char*) src);
+             dest = (char *)dest+1;
+             src = (char *)src+1;
+             count--;
+      }
+       return ret ;
+}
+
+int main ()
+{
+       char arr1 [6] = "abcde";
+       char arr2 [5] = "00000";
+       my_memcpy(arr1 ,arr2,5);
+       printf("%s" ,arr1);
+       system("pause" );
+       return 0;
+}
