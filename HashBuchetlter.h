@@ -90,7 +90,7 @@ struct _HashTableIterator
 	}
 };
 
-// ÔöÈİ STL
+// å¢å®¹ STL
 template<class K, class V, class _HashFun = HashFunDef<K>>
 class HashTableBucket
 {
@@ -232,8 +232,8 @@ private:
 		if (_size == _table.size())
 		{
 			HashTableBucket<K, V> temp(GetNextPrim(_size));
-			// ÔöÈİ
-			// Ô­¹şÏ£Í°ÖĞµÄ½áµã²åÈëµ½ĞÂ¹şÏ£Í°
+			// å¢å®¹
+			// åŸå“ˆå¸Œæ¡¶ä¸­çš„ç»“ç‚¹æ’å…¥åˆ°æ–°å“ˆå¸Œæ¡¶
 			for (size_t idx = 0; idx < _size; ++idx)
 			{
 				HashTableNode<K, V>* pCur = _table[idx];
@@ -243,7 +243,7 @@ private:
 					pPre = pCur;
 					pCur = pCur->_next;
 
-					// ¶¨Î»ÔÚĞÂ¹şÏ£Í°ÖĞµÄÎ»ÖÃ
+					// å®šä½åœ¨æ–°å“ˆå¸Œæ¡¶ä¸­çš„ä½ç½®
 					size_t index = temp.HashFun(pPre->_kv.first);
 					pPre->_next = temp._table[index];
 					temp._table[index] = pPre;
@@ -274,11 +274,11 @@ void TestItreator()
 {
 
 	HashTableBucket<string, string> ht;
-	ht.Insert(make_pair("1", "Ñî¹ı"));
-	ht.Insert(make_pair("2", "Ğ¡ÁúÅ®"));
-	ht.Insert(make_pair("3", "¾¸¸ç¸ç"));
-	ht.Insert(make_pair("4", "ÈØ¶ù"));
-	ht.Insert(make_pair("5", "¶«Ğ°"));
+	ht.Insert(make_pair("1", "æ¨è¿‡"));
+	ht.Insert(make_pair("2", "å°é¾™å¥³"));
+	ht.Insert(make_pair("3", "é–å“¥å“¥"));
+	ht.Insert(make_pair("4", "è“‰å„¿"));
+	ht.Insert(make_pair("5", "ä¸œé‚ª"));
 	cout << ht["1"] << endl;
 	HashTableBucket<string, string>::Iterator it = ht.Begin();
 
