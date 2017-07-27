@@ -7,7 +7,7 @@ int main()
 	int i, num, a[33], tmp[33];
 	scanf("%d", &num);
  
-    printf("原来的\n");
+    	printf("原来的\n");
 
 	printf("偶数位：");
 	for(i = 31; i>= 0 ; i-= 2)
