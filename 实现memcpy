@@ -1,3 +1,4 @@
+//memcpy是内存拷贝函数，它的作用在于吧源目标上的内容拷贝到目标上
 void *my_memcpy (void * dest,const void * src,int count)
 {
        void *ret = dest;
