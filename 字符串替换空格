@@ -11,6 +11,7 @@ void replaced (char* str)
        int len = strlen( str);
        for (i =0;i< len;i ++)
       {
+             //判断此字符为空格
              if (*(str +i)== ' ')
             {
                    countblank++;
