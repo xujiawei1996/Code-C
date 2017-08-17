@@ -1,4 +1,3 @@
-
 void* my_memmove (void * dest, void *src, int sz )
 {
        char *sp = dest;
