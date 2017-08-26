@@ -7,6 +7,7 @@ int main()
 {
 	char ch = 0;
 	int count = 0;
+	//读取字符，判断花括号是否成对
 	while((ch = getchar())!= EOF)
 	{
 		if (ch == '{')
